@@ -69,6 +69,22 @@ export interface MapLayerDef {
   available: boolean;
 }
 
+/** A ballot measure (proposition / charter amendment / ordinance) on the
+ *  primary ballot, with the party's position on it. Distinct from candidates. */
+export interface BallotMeasure {
+  id: string;
+  /** Single letter / number identifier on the ballot, e.g. "A", "B", "1". */
+  letter: string;
+  /** Measure type, e.g. "Bond Measure", "Charter Amendment", "Ordinance". */
+  type: string;
+  /** Short, voter-facing description of what the measure does. */
+  title: string;
+  /** Party / committee position on the measure. */
+  position: "Yes" | "No";
+  /** Optional supporting note (one or two sentences). */
+  rationale?: string;
+}
+
 /** The set of districts a single point falls inside, after point-in-polygon. */
 export interface DistrictMatches {
   congressional: string | null;   // e.g. "11"

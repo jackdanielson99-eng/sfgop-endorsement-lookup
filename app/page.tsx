@@ -12,10 +12,11 @@ import YourDistrictsPanel from "./components/YourDistrictsPanel";
 import CityOverviewNote from "./components/CityOverviewNote";
 import ResultsList from "./components/ResultsList";
 import NoResults from "./components/NoResults";
+import BallotMeasures from "./components/BallotMeasures";
 import PrintableResults from "./components/PrintableResults";
 import Footer from "./components/Footer";
 
-import { endorsements } from "./data/endorsements";
+import { endorsements, ballotMeasures } from "./data/endorsements";
 import { runSearch, type SearchResult } from "./lib/search";
 import {
   loadAllDistrictLayers,
@@ -167,11 +168,22 @@ export default function HomePage() {
             </div>
           )}
 
+          {/* Ballot measures: countywide. Always shown after a search runs
+              (since every SF voter sees the same measures), even when no
+              candidates matched. */}
+          {result && !loading && ballotMeasures.length > 0 && (
+            <div className="print:hidden">
+              <BallotMeasures measures={ballotMeasures} />
+            </div>
+          )}
+
           {/* Print-only voter guide. Hidden on screen, shown on print
-              with its own compact one-line-per-candidate layout. */}
-          {result && !loading && result.candidates.length > 0 && (
+              with its own compact one-line-per-candidate layout. Includes
+              ballot measures alongside the candidates. */}
+          {result && !loading && (result.candidates.length > 0 || ballotMeasures.length > 0) && (
             <PrintableResults
               candidates={result.candidates}
+              measures={ballotMeasures}
               searchedLabel={result.label}
               districts={result.districts}
               mode={result.mode}

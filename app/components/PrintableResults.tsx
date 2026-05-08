@@ -2,7 +2,12 @@
 // becomes visible inside @media print, where it replaces the regular bloated
 // card UI with a tight one-line-per-candidate format that fits on 1–2 pages.
 
-import type { Candidate, DistrictMatches, OfficeCategory } from "../lib/types";
+import type {
+  BallotMeasure,
+  Candidate,
+  DistrictMatches,
+  OfficeCategory,
+} from "../lib/types";
 
 const CATEGORY_ORDER: OfficeCategory[] = [
   "Federal",
@@ -41,6 +46,7 @@ function summarizeDistricts(d: DistrictMatches): string {
 
 interface Props {
   candidates: Candidate[];
+  measures?: BallotMeasure[];
   searchedLabel: string;
   districts: DistrictMatches | null;
   mode: "address" | "city-overview";
@@ -48,6 +54,7 @@ interface Props {
 
 export default function PrintableResults({
   candidates,
+  measures = [],
   searchedLabel,
   districts,
   mode,
@@ -117,6 +124,34 @@ export default function PrintableResults({
           </ul>
         </section>
       ))}
+
+      {/* Ballot measures */}
+      {measures.length > 0 && (
+        <section className="print-category">
+          <h3 className="print-cat-heading">Ballot Measures</h3>
+          <ul className="print-list">
+            {measures.map((m) => (
+              <li key={m.id} className="print-row print-row-measure">
+                <span className="print-box" aria-hidden>
+                  ☐
+                </span>
+                <span className="print-name">
+                  Measure {m.letter}
+                </span>
+                <span className="print-office">
+                  {m.type} — {m.title}
+                </span>
+                <span
+                  className="print-source"
+                  style={{ color: m.position === "Yes" ? "#15803d" : "#b91c1c" }}
+                >
+                  Vote {m.position}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Print disclosure */}
       <div className="print-disclosure">
