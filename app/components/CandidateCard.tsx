@@ -8,10 +8,9 @@ interface Props {
 
 /**
  * Badge text + style derived from the candidate's endorsement source.
- *
- * Language rule: SFGOP and CAGOP picks use "Endorsed by …" (red badge).
- * All other sources use "Recommended by …" so voters never mistake an
- * outside group's pick for a party endorsement.
+ * Two badges in use today:
+ *   "SFGOP"        → red    "Endorsed by SFGOP"
+ *   "Recommended"  → amber  "Recommended"
  */
 function badgeFor(source: string): { label: string; classes: string } {
   const s = source.toLowerCase();
@@ -21,34 +20,10 @@ function badgeFor(source: string): { label: string; classes: string } {
       classes: "bg-gop-red text-white",
     };
   }
-  if (s.includes("cagop")) {
-    return {
-      label: "Endorsed by CAGOP",
-      classes: "bg-gop-red text-white",
-    };
-  }
-  if (s.includes("reform")) {
-    return {
-      label: "Recommended by Reform CA",
-      classes: "bg-gray-700 text-white",
-    };
-  }
-  if (s.includes("howard jarvis") || s.includes("hjta")) {
-    return {
-      label: "Recommended by HJTA",
-      classes: "bg-gray-700 text-white",
-    };
-  }
   if (s.includes("recommend")) {
     return {
       label: "Recommended",
       classes: "bg-amber-500 text-white",
-    };
-  }
-  if (s.includes("pick")) {
-    return {
-      label: source, // e.g. "Pick 1"
-      classes: "bg-gray-600 text-white",
     };
   }
   return { label: source || "Listed", classes: "bg-gray-500 text-white" };

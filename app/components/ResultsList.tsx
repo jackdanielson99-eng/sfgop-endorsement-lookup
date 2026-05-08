@@ -40,19 +40,26 @@ export default function ResultsList({ candidates, searchedLabel }: Props) {
         </span>
       </div>
 
-      {/* Disclaimer: not every card is a direct SFGOP endorsement — some are
-          CAGOP, Reform CA, or recommendations. The badge on each card shows
-          the source. Races with no endorsement at all are not shown. */}
+      {/* Disclaimer above results — not every card is a formal SFGOP
+          endorsement; some are recommendations. */}
       <div className="mt-4 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
         <p>
           <span className="font-semibold">Note:</span> The red{" "}
-          <span className="font-semibold">Endorsed</span> badges mark
-          Republican Party endorsements (SFGOP and CAGOP). Other badges are
-          recommendations from allied groups (Reform CA, Howard Jarvis
-          Taxpayers Association) or general recommendations. Only races with
-          at least one endorsement or recommendation are shown. For your full
-          ballot, see your official sample ballot from the San Francisco
-          Registrar-Recorder.
+          <span className="font-semibold">Endorsed</span> badge marks a
+          formal SFGOP endorsement; the amber{" "}
+          <span className="font-semibold">Recommended</span> badge marks a
+          candidate SFGOP recommends without a formal endorsement. Only
+          races with at least one endorsement or recommendation are shown.
+          For your full ballot, see your official sample ballot from the{" "}
+          <a
+            href="https://www.sfelections.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-amber-700 underline-offset-2"
+          >
+            San Francisco Department of Elections
+          </a>
+          .
         </p>
       </div>
 

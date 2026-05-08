@@ -22,14 +22,8 @@ const CATEGORY_ORDER: OfficeCategory[] = [
 /** Short ALL-CAPS label for the source column. */
 function sourceLabel(source: string): string {
   const s = source.toLowerCase();
-  if (s.includes("sfgop/cagop") || s.includes("cagop/sfgop"))
-    return "SFGOP / CAGOP";
   if (s.includes("sfgop")) return "SFGOP";
-  if (s.includes("cagop")) return "CAGOP";
-  if (s.includes("reform")) return "Reform CA";
-  if (s.includes("howard jarvis") || s.includes("hjta")) return "HJTA";
   if (s.includes("recommend")) return "Recommended";
-  if (s.includes("pick")) return source;
   return source || "—";
 }
 

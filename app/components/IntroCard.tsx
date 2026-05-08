@@ -9,11 +9,12 @@ export default function IntroCard() {
 
       <p className="mt-2 text-sm sm:text-base text-gray-700">
         The SFGOP Endorsement Lookup helps San Francisco voters find
-        endorsed and recommended candidates for the June 2026 primary. The
-        red <span className="font-semibold">Endorsed</span> badges mark
-        Republican Party endorsements (SFGOP and CAGOP). Other badges are
-        recommendations from allied groups — Reform CA, the Howard Jarvis
-        Taxpayers Association, or general recommendations.
+        endorsed and recommended candidates for the June 2026 primary
+        and the local ballot measures. The red{" "}
+        <span className="font-semibold">Endorsed</span> badge marks
+        a formal SFGOP endorsement; the amber{" "}
+        <span className="font-semibold">Recommended</span> badge marks a
+        candidate SFGOP recommends without a formal endorsement.
       </p>
 
       <ol className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">

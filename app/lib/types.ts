@@ -24,13 +24,11 @@ export interface Candidate {
   /** Ballot designation from the candidate's filing (e.g. "Small Business Owner"). */
   ballotDesignation?: string;
   /**
-   * Endorsement-source label as it appears in the source document.
-   * Drives the badge text/color on the candidate card. Examples:
-   *   "SFGOP" / "CAGOP/SFGOP"   → red "Endorsed by SFGOP" badge
-   *   "CAGOP"                   → red "Endorsed by CAGOP" badge
-   *   "Reform CA"               → neutral "Recommended by Reform CA" badge
-   *   "Recommended"             → amber "Recommended" badge
-   *   "HJTA"                    → neutral "Recommended by HJTA" badge
+   * Endorsement-source label that drives the badge on the candidate card.
+   * Two values in active use:
+   *   "SFGOP"        → red   "Endorsed by SFGOP"
+   *   "Recommended"  → amber "Recommended"
+   * Anything else falls back to a neutral gray badge with the raw label.
    */
   endorsementSource: string;
   /** Whether the candidate is the incumbent (drawn as a small "★" suffix). */
