@@ -48,15 +48,6 @@ export default function Legend() {
           </li>
         ))}
 
-        <li className="flex items-start gap-2 sm:col-span-2">
-          <span className="shrink-0 text-gop-red text-base leading-none mt-0.5">
-            ★
-          </span>
-          <span className="text-sm text-gray-700">
-            <span className="font-medium text-navy">Incumbent</span> — the
-            candidate currently holds this office.
-          </span>
-        </li>
       </ul>
 
       {/* Map layer colors. */}
