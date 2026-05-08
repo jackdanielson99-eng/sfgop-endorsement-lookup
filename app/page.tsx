@@ -171,22 +171,6 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* Diagnostic strip — visible only when result is set; lets the
-              user (and us) see exactly what was computed even if other
-              sections are broken. Build ID 2026-05-07a. */}
-          {result && !loading && (
-            <div className="print:hidden text-xs text-gray-500 bg-yellow-50 border border-yellow-200 rounded px-3 py-2 font-mono">
-              build=2026-05-07a · mode={result.mode} ·
-              candidates={result.candidates.length} ·
-              measures={ballotMeasures.length} ·
-              tags={result.candidates
-                .slice(0, 3)
-                .map((c) => c.id)
-                .join(",")}
-              {result.candidates.length === 0 && " · NO MATCHES"}
-            </div>
-          )}
-
           {result && !loading && (
             <div className="print:hidden">
               {result.candidates.length > 0 ? (

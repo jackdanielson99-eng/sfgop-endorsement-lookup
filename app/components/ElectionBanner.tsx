@@ -102,7 +102,7 @@ export default function ElectionBanner() {
         {/* Action links */}
         <div className="flex items-center gap-x-4 gap-y-1 flex-wrap text-xs sm:text-sm font-medium">
           <a
-            href="https://locator.lavote.gov/locations/vc"
+            href="https://sfelections.org/tools/pollsite/index.php"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 active:bg-white/25 border border-white/25 transition-colors print:hidden"
@@ -111,7 +111,7 @@ export default function ElectionBanner() {
             <ExternalIcon />
           </a>
           <a
-            href="https://www.lavote.gov/home/voting-elections/current-elections"
+            href="https://www.sfelections.org/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 active:bg-white/25 border border-white/25 transition-colors print:hidden"

@@ -25,7 +25,7 @@ export default function Header() {
           {/* External link to the main SFGOP website. Subtle bordered pill so
               it reads as a link without competing with the title. */}
           <a
-            href="https://sfgop.org"
+            href="https://www.sfgop.org/"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-white/30 bg-white/5 hover:bg-white/15 active:bg-white/20 px-3 py-1.5 text-xs sm:text-sm font-medium text-white transition-colors print:hidden"
