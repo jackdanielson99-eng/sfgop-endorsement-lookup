@@ -1,6 +1,6 @@
 # Adapting this tool for another county / state party
 
-This repo started as the **LAGOP Endorsement Lookup** for Los Angeles County
+This repo started as the **SFGOP Endorsement Lookup** for San Francisco
 but the architecture is fully reusable. Most county / state party builds
 should take a few hours, not weeks.
 
@@ -51,7 +51,7 @@ Every file here is LA-County-filtered. To adapt:
 | `torrance/pasadena/covina-city-council.geojson` | Smaller cities with by-district seats | Each city's open data portal (ArcGIS Hub usually). |
 | `zip-centroids.json` | Bare-ZIP fallback | Re-fetch ZCTAs from TIGERweb, filter to county bbox, write `{ zip: [lng, lat] }`. |
 
-### 2. Code references to "LA" / Los Angeles
+### 2. Code references to "LA" / San Francisco
 
 These need a search-and-replace pass when forking:
 
@@ -66,10 +66,10 @@ These need a search-and-replace pass when forking:
 - `app/components/YourDistrictsPanel.tsx` → labels say "LA County
   Supervisor", "LA City Council" — change to the new county's terminology.
 - `app/components/Footer.tsx` → committee name, FEC #, FPPC ID, FEIN.
-- `app/components/Header.tsx` → "LAGOP", "Los Angeles County Republican
+- `app/components/Header.tsx` → "SFGOP", "San Francisco Republican
   Party", LA-org URL.
 - `app/components/IntroCard.tsx`, `Legend.tsx`, `ResultsList.tsx`,
-  `CityOverviewNote.tsx` → "LAGOP" mentions in the user-facing copy.
+  `CityOverviewNote.tsx` → "SFGOP" mentions in the user-facing copy.
 - `app/components/ElectionBanner.tsx` → date constant + polling-place URL +
   sample-ballot URL (your state's voter info site).
 - `app/api/geocode/route.ts` → no changes needed (Census API is national).
@@ -138,7 +138,7 @@ These need a search-and-replace pass when forking:
    > "I'm forking this for the Orange County Republican Party. Help me:
    > (a) swap in OC's county outline, supervisorial districts, cities, and
    > school districts; (b) re-fetch CD/SD/AD filtered to OC; (c) replace
-   > the LAGOP branding with OCGOP branding; (d) update the FEC/FPPC IDs
+   > the SFGOP branding with OCGOP branding; (d) update the FEC/FPPC IDs
    > in the footer."
 5. **Provide endorsement data** when ready — paste the official voter-guide
    document and Claude will convert it to `endorsements.ts` in the right
@@ -149,10 +149,10 @@ These need a search-and-replace pass when forking:
 
 ## Design decisions worth preserving
 
-These came out of LAGOP feedback and are worth keeping (or knowing about
+These came out of SFGOP feedback and are worth keeping (or knowing about
 when explaining to a new client):
 
-- **"Endorsed" language is reserved for LAGOP and CAGOP** — the two
+- **"Endorsed" language is reserved for SFGOP and CAGOP** — the two
   Republican Party endorsements. Every other source uses "Recommended by
   [Group]". Red badge for party endorsements, neutral colors for
   recommendations. (See `badgeFor` in `app/components/CandidateCard.tsx`.)
@@ -163,7 +163,7 @@ when explaining to a new client):
 - **City-only searches use overview mode** — show every endorsement in the
   city, not just the centroid spot. Tells voters when this happened.
 - **Donate buttons are not in the UI** — the type allows `website` and
-  `volunteer` URLs only. LAGOP didn't want donation prompts in the tool.
+  `volunteer` URLs only. SFGOP didn't want donation prompts in the tool.
 - **Disclosure footer is required** — FEC #, FPPC ID, FEIN. Each county /
   state party has their own — get them before launch.
 

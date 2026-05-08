@@ -7,7 +7,7 @@ to run them in normal use — `app/data/endorsements.ts` and the GeoJSON files i
 ## `gen-endorsements.mjs`
 
 Regenerates `app/data/endorsements.ts` with one placeholder candidate per
-office per district covering Los Angeles County. Useful if the boundary files
+office per district covering San Francisco. Useful if the boundary files
 are updated and the placeholder set should be refreshed.
 
 ```bash

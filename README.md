@@ -1,11 +1,11 @@
-# LAGOP Endorsement Lookup — Prototype
+# SFGOP Endorsement Lookup — Prototype
 
-A clean, mobile-friendly web app that lets Los Angeles County voters look up
-LAGOP-endorsed candidates by **address, ZIP code, city, or district**, with an
-interactive Los Angeles County map.
+A clean, mobile-friendly web app that lets San Francisco voters look up
+SFGOP-endorsed candidates by **address, ZIP code, city, or district**, with an
+interactive San Francisco map.
 
 > **Prototype only.** This version ships with placeholder candidate data and a
-> simplified LA County outline so LAGOP leadership can review the UX, branding,
+> simplified LA County outline so SFGOP leadership can review the UX, branding,
 > and structure before final endorsement and boundary data are added.
 
 ---
@@ -21,9 +21,9 @@ interactive Los Angeles County map.
   Each one activates automatically once a real GeoJSON file is dropped in.
 - **Results page** — Endorsement cards grouped by office category (Federal,
   State, County, City, School Board, Special Districts, Judicial). Each card
-  has a "Endorsed by LAGOP" badge plus an optional Website button.
+  has a "Endorsed by SFGOP" badge plus an optional Website button.
 - **Friendly empty state** — If no endorsements match, shows a fallback with a
-  contact-LAGOP placeholder button.
+  contact-SFGOP placeholder button.
 - **Prototype watermark** — Visible disclaimer in the footer and on the map.
 
 [Leaflet]: https://leafletjs.com/
@@ -35,7 +35,7 @@ interactive Los Angeles County map.
 You need [Node.js](https://nodejs.org/) **18 or newer** (which comes with `npm`).
 
 ```bash
-cd lagop-endorsement-lookup
+cd sfgop-endorsement-lookup
 npm install
 npm run dev
 ```
@@ -54,7 +54,7 @@ npm start
 ## Project structure
 
 ```
-lagop-endorsement-lookup/
+sfgop-endorsement-lookup/
 ├── app/
 │   ├── components/         ← React UI components
 │   │   ├── Header.tsx
@@ -101,7 +101,7 @@ documents every field, but in short:
   id: "city-001",
   name: "Jane Smith",
   office: "City Council Member",
-  jurisdiction: "Los Angeles, District 1",
+  jurisdiction: "San Francisco, District 1",
   category: "City",   // Federal | State | County | City | School Board | Special Districts | Judicial
   party: "Republican",
   website:   "https://example.com",   // optional
@@ -194,15 +194,15 @@ The code is intentionally simple, but the structure leaves room for:
 
 ---
 
-## Notes for LAGOP leadership review
+## Notes for SFGOP leadership review
 
 Please review:
 
-1. **Branding** — Does the navy / white / red palette and the "Los Angeles
+1. **Branding** — Does the navy / white / red palette and the "San Francisco
    County Republican Party" lockup match the official style? Replace the
-   small "LA" tile in the header with the official LAGOP logo when ready.
+   small "LA" tile in the header with the official SFGOP logo when ready.
 2. **Disclaimer language** — The search section, map watermark, and footer
-   each carry "Prototype only" / "Final … pending LAGOP approval" language.
+   each carry "Prototype only" / "Final … pending SFGOP approval" language.
    Confirm wording is acceptable.
 3. **Office categories** — Federal, State, County, City, School Board,
    Special Districts, Judicial. Add or remove categories in
@@ -211,18 +211,18 @@ Please review:
 4. **Candidate card buttons** — Website and Volunteer are optional per
    candidate. Confirm whether Volunteer should be visible in the
    public-facing version.
-5. **"Contact LAGOP" button** — Replace the placeholder `href="#"` in
+5. **"Contact SFGOP" button** — Replace the placeholder `href="#"` in
    `app/components/NoResults.tsx` with the real contact URL or email.
 6. **Map placeholders** — The simplified county outline and sample red
    regions are clearly labeled as placeholders. Confirm the rough shape is
    acceptable as the temporary visual until official boundaries are loaded.
 7. **Footer attribution** — Update the "Paid for by …" line in
-   `app/components/Footer.tsx` to match LAGOP's required disclosure language.
+   `app/components/Footer.tsx` to match SFGOP's required disclosure language.
 
 Once approved, the substantive work to launch is:
 
 - Drop in the official LA County GeoJSON outline.
 - Drop in district GeoJSONs and flip `available: true` for each layer.
 - Replace the contents of `app/data/endorsements.ts` with the real slate.
-- Plug in real Website / Volunteer URLs and the LAGOP logo.
+- Plug in real Website / Volunteer URLs and the SFGOP logo.
 

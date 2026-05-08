@@ -1,7 +1,6 @@
 // Dynamically generated social card preview. Next.js auto-discovers this file
 // and serves it at /opengraph-image when the OG tags reference it.
-//
-// Renders at build time via @vercel/og's edge ImageResponse.
+// Embeds the actual SFGOP logo (app/og-logo.png) so shares look on-brand.
 
 import { ImageResponse } from "next/og";
 
@@ -11,6 +10,10 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
+  const logo = await fetch(new URL("./og-logo.png", import.meta.url)).then(
+    (r) => r.arrayBuffer()
+  );
+
   return new ImageResponse(
     (
       <div
@@ -27,24 +30,23 @@ export default async function Image() {
           position: "relative",
         }}
       >
-        {/* Top brand block */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        {/* Top brand block — actual SFGOP logo on a small white tile so the
+            transparent PNG reads cleanly against the navy background. */}
+        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
           <div
             style={{
-              width: 84,
-              height: 84,
-              background: "#d32f2f",
-              color: "white",
-              fontWeight: 800,
-              fontSize: 42,
-              borderRadius: 8,
+              width: 110,
+              height: 110,
+              background: "white",
+              borderRadius: 14,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              letterSpacing: -2,
+              padding: 8,
             }}
           >
-            SF
+            {/* @ts-expect-error — Satori accepts ArrayBuffer for img src */}
+            <img src={logo} width={94} height={94} style={{ objectFit: "contain" }} />
           </div>
           <div
             style={{
@@ -55,9 +57,9 @@ export default async function Image() {
           >
             <span
               style={{
-                fontSize: 20,
+                fontSize: 22,
                 letterSpacing: 4,
-                opacity: 0.7,
+                opacity: 0.85,
                 textTransform: "uppercase",
               }}
             >
@@ -72,13 +74,27 @@ export default async function Image() {
             display: "flex",
             flexDirection: "column",
             marginTop: 60,
-            gap: 24,
+            gap: 18,
           }}
         >
-          <span style={{ fontSize: 88, fontWeight: 700, letterSpacing: -2, lineHeight: 1.05 }}>
+          <span
+            style={{
+              fontSize: 92,
+              fontWeight: 700,
+              letterSpacing: -2,
+              lineHeight: 1.05,
+            }}
+          >
             SFGOP Endorsement
           </span>
-          <span style={{ fontSize: 88, fontWeight: 700, letterSpacing: -2, lineHeight: 1.05 }}>
+          <span
+            style={{
+              fontSize: 92,
+              fontWeight: 700,
+              letterSpacing: -2,
+              lineHeight: 1.05,
+            }}
+          >
             Lookup
           </span>
         </div>
@@ -86,12 +102,12 @@ export default async function Image() {
         <div
           style={{
             fontSize: 32,
-            opacity: 0.85,
+            opacity: 0.9,
             marginTop: 28,
             display: "flex",
           }}
         >
-          Find Republican-endorsed candidates in your area.
+          Find Republican-endorsed candidates for the June 2026 primary.
         </div>
 
         {/* Bottom red stripe */}
