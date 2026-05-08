@@ -225,3 +225,4 @@ Once approved, the substantive work to launch is:
 - Drop in district GeoJSONs and flip `available: true` for each layer.
 - Replace the contents of `app/data/endorsements.ts` with the real slate.
 - Plug in real Website / Volunteer URLs and the LAGOP logo.
+
