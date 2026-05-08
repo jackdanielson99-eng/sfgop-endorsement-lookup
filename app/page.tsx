@@ -40,6 +40,7 @@ export default function HomePage() {
 
   // Sync the URL ?q= param with the current search so results are shareable
   // and survive a refresh.
+  const [pendingQuery, setPendingQuery] = useState<string | null>(null);
   const handleSearch = useCallback(
     async (input: string, opts?: { skipUrlUpdate?: boolean }) => {
       const trimmed = input.trim();
@@ -47,6 +48,22 @@ export default function HomePage() {
         setResult(null);
         if (!opts?.skipUrlUpdate && typeof window !== "undefined") {
           window.history.replaceState(null, "", window.location.pathname);
+        }
+        return;
+      }
+      // If a user submits before the boundary GeoJSONs finish downloading,
+      // defer the search instead of silently returning no results.
+      if (!layersReady) {
+        setPendingQuery(trimmed);
+        setLoading(true);
+        if (!opts?.skipUrlUpdate && typeof window !== "undefined") {
+          const params = new URLSearchParams();
+          params.set("q", trimmed);
+          window.history.replaceState(
+            null,
+            "",
+            `${window.location.pathname}?${params.toString()}`
+          );
         }
         return;
       }
@@ -67,12 +84,11 @@ export default function HomePage() {
         setLoading(false);
       }
     },
-    [layers, zipLookup]
+    [layers, zipLookup, layersReady]
   );
 
   // Auto-run a search if the page was loaded with ?q=… (e.g. shared link).
   // Wait until layers are loaded so the matching is correct.
-  const [pendingQuery, setPendingQuery] = useState<string | null>(null);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const q = new URLSearchParams(window.location.search).get("q");
