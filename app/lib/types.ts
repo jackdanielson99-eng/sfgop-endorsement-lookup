@@ -67,6 +67,12 @@ export interface MapLayerDef {
   label: string;
   geojsonPath: string;
   available: boolean;
+  /**
+   * When false, the layer is still loaded and used for point-in-polygon
+   * matching, but is hidden from the on-page toggle panel and the Key.
+   * Default: true.
+   */
+  displayInUI?: boolean;
 }
 
 /** A ballot measure (proposition / charter amendment / ordinance) on the

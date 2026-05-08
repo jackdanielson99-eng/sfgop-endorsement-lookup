@@ -20,7 +20,7 @@ export default function LayerToggles({ visibleLayers, onToggle }: Props) {
         Toggle district lines on the map.
       </p>
       <ul className="mt-3 space-y-2">
-        {MAP_LAYERS.map((layer) => {
+        {MAP_LAYERS.filter((l) => l.displayInUI !== false).map((layer) => {
           const disabled = !layer.available;
           return (
             <li key={layer.key} className="flex items-start gap-2">

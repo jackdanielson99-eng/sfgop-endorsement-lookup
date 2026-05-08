@@ -43,16 +43,23 @@ export const MAP_LAYERS: MapLayerDef[] = [
     available: true,
   },
   {
+    // SF is one city, so a "City Boundary" toggle would just retrace the
+    // always-on county outline. Layer stays loaded for the city-name search
+    // fallback, but hidden from the toggle panel and Key.
     key: "city",
     label: "City Boundary",
     geojsonPath: "/data/cities.geojson",
     available: true,
+    displayInUI: false,
   },
   {
+    // SFUSD covers all of SF — same shape as the county outline. Loaded for
+    // matching but hidden from UI for the same reason as the city layer above.
     key: "schoolDistrict",
     label: "School District (SFUSD)",
     geojsonPath: "/data/school-districts.geojson",
     available: true,
+    displayInUI: false,
   },
 ];
 

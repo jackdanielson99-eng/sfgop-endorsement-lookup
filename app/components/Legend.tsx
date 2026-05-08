@@ -7,27 +7,12 @@ const BADGES: { label: string; classes: string; text: string }[] = [
   {
     label: "Endorsed by SFGOP",
     classes: "bg-gop-red text-white",
-    text: "Officially endorsed by the San Francisco Republican Party (sometimes jointly with the state party).",
-  },
-  {
-    label: "Endorsed by CAGOP",
-    classes: "bg-gop-red text-white",
-    text: "Officially endorsed by the California Republican Party (state party).",
-  },
-  {
-    label: "Recommended by Reform CA",
-    classes: "bg-gray-700 text-white",
-    text: "Recommended by Reform California.",
-  },
-  {
-    label: "Recommended by HJTA",
-    classes: "bg-gray-700 text-white",
-    text: "Recommended by the Howard Jarvis Taxpayers Association.",
+    text: "Officially endorsed by the San Francisco Republican County Central Committee.",
   },
   {
     label: "Recommended",
     classes: "bg-amber-500 text-white",
-    text: "General recommendation.",
+    text: "Recommended by SFGOP. Not a formal endorsement.",
   },
 ];
 
@@ -82,23 +67,25 @@ export default function Legend() {
         Toggle these on the map using the panel to the right of the map.
       </p>
       <ul className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-sm">
-        {MAP_LAYERS.filter((l) => l.available).map((l) => (
-          <li key={l.key} className="flex items-center gap-2">
-            <span
-              aria-hidden
-              className="shrink-0 h-3 w-5 rounded-sm border border-black/10"
-              style={{ backgroundColor: LAYER_COLORS[l.key] }}
-            />
-            <span className="text-navy">{l.label}</span>
-          </li>
-        ))}
+        {MAP_LAYERS.filter((l) => l.available && l.displayInUI !== false).map(
+          (l) => (
+            <li key={l.key} className="flex items-center gap-2">
+              <span
+                aria-hidden
+                className="shrink-0 h-3 w-5 rounded-sm border border-black/10"
+                style={{ backgroundColor: LAYER_COLORS[l.key] }}
+              />
+              <span className="text-navy">{l.label}</span>
+            </li>
+          )
+        )}
         <li className="flex items-center gap-2">
           <span
             aria-hidden
             className="shrink-0 h-3 w-5 rounded-sm border border-black/10"
             style={{ backgroundColor: "#0d47a1" }}
           />
-          <span className="text-navy">LA County Outline</span>
+          <span className="text-navy">San Francisco Outline</span>
         </li>
         <li className="flex items-center gap-2">
           <span
