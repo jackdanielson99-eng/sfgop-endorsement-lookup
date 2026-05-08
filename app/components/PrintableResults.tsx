@@ -120,8 +120,8 @@ export default function PrintableResults({
 
       {/* Print disclosure */}
       <div className="print-disclosure">
-        Paid for by the San Francisco Republican Party · FEC # [TBD] · FPPC ID
-        [TBD] · FEIN [TBD] · sfgop.org
+        Paid for by the San Francisco Republican County Central Committee ·
+        FPPC #890605 · sfgop.org
       </div>
     </div>
   );

@@ -1,19 +1,16 @@
-// Site footer with the FEC / FPPC / FEIN disclosure.
-// TODO: replace [TBD] placeholders with the San Francisco Republican Party's
-// actual registration numbers before public launch.
+// Site footer with the FPPC disclosure.
 
 export default function Footer() {
   return (
     <footer className="bg-navy-deep text-white/80 mt-10">
       <div className="mx-auto max-w-6xl px-4 py-6 text-xs sm:text-sm space-y-1">
         <p className="font-semibold text-white">
-          Paid for by the San Francisco Republican Party
+          Paid for by the San Francisco Republican County Central Committee
         </p>
-        <p>
-          FEC # [TBD] &bull; FPPC ID [TBD] &bull; FEIN [TBD]
-        </p>
+        <p>FPPC #890605</p>
         <p className="pt-1 text-white/60">
-          &copy; {new Date().getFullYear()} San Francisco Republican Party
+          &copy; {new Date().getFullYear()} San Francisco Republican County
+          Central Committee
         </p>
       </div>
     </footer>
