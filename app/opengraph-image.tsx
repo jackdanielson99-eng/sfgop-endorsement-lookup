@@ -19,7 +19,7 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#0a2240",
+          background: "#0d47a1",
           color: "white",
           fontFamily:
             "system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif",
@@ -33,7 +33,7 @@ export default async function Image() {
             style={{
               width: 84,
               height: 84,
-              background: "#b91c1c",
+              background: "#d32f2f",
               color: "white",
               fontWeight: 800,
               fontSize: 42,
@@ -102,7 +102,7 @@ export default async function Image() {
             left: 0,
             right: 0,
             height: 16,
-            background: "#b91c1c",
+            background: "#d32f2f",
           }}
         />
       </div>

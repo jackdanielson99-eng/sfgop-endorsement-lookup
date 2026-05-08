@@ -6,11 +6,17 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 py-5 sm:py-6">
         <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-6">
           <div className="flex items-center gap-3 min-w-0">
-            <div
-              aria-hidden
-              className="h-9 w-9 rounded-sm bg-gop-red flex items-center justify-center font-bold tracking-tight shrink-0"
-            >
-              SF
+            {/* SFGOP logo. Wrapped in a small white-rounded square so the
+                logo's transparency reads cleanly against the navy header. */}
+            <div className="h-10 w-10 rounded-sm bg-white p-0.5 flex items-center justify-center shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/sfgop-logo.png"
+                alt="San Francisco Republican Party"
+                width={40}
+                height={40}
+                className="h-full w-full object-contain"
+              />
             </div>
             <div className="leading-tight min-w-0">
               <p className="text-[11px] sm:text-xs uppercase tracking-widest text-white/70 truncate">

@@ -5,16 +5,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // LAGOP-style palette: dark navy, white, red accents.
+        // SFGOP brand palette — pulled from sfgop.org's CSS:
+        //   primary red:    #d32f2f (Material red 700)
+        //   secondary navy: #0d47a1 (Material blue 900)
+        // The token names (`navy`, `gop`) are kept the same as the LAGOP fork
+        // so we don't have to refactor every component.
         navy: {
-          DEFAULT: "#0a2240",
-          deep: "#061734",
-          soft: "#13315c",
+          DEFAULT: "#0d47a1", // SFGOP navy
+          deep: "#0a3a8a", // slightly darker (header band, footer)
+          soft: "#1565c0", // slightly lighter (hover)
         },
         gop: {
-          red: "#b91c1c",
-          redDark: "#991b1b",
-          redLight: "#dc2626",
+          red: "#d32f2f", // SFGOP red
+          redDark: "#b71c1c", // hover / pressed
+          redLight: "#ffebee", // very light red for tint backgrounds
         },
       },
       fontFamily: {

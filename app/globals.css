@@ -11,7 +11,7 @@ html, body {
 
 body {
   background-color: #f5f6f8;
-  color: #0a2240;
+  color: #0d47a1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -57,7 +57,7 @@ body {
   }
 
   .print-header {
-    border-bottom: 2px solid #b91c1c;
+    border-bottom: 2px solid #d32f2f;
     padding-bottom: 6pt;
     margin-bottom: 8pt;
   }
@@ -92,7 +92,7 @@ body {
     border-bottom: 1px solid #999;
     padding-bottom: 1pt;
     margin-bottom: 3pt;
-    color: #b91c1c;
+    color: #d32f2f;
   }
 
   .print-list {
@@ -120,7 +120,7 @@ body {
     font-weight: 700;
     color: #000;
   }
-  .print-star { color: #b91c1c; font-weight: 700; }
+  .print-star { color: #d32f2f; font-weight: 700; }
   .print-office {
     color: #222;
     font-size: 9pt;

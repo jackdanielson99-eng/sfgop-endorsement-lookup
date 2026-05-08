@@ -143,7 +143,7 @@ export default function PrintableResults({
                 </span>
                 <span
                   className="print-source"
-                  style={{ color: m.position === "Yes" ? "#15803d" : "#b91c1c" }}
+                  style={{ color: m.position === "Yes" ? "#15803d" : "#d32f2f" }}
                 >
                   Vote {m.position}
                 </span>

@@ -38,12 +38,12 @@ const sfgopPin = L.divIcon({
     <div style="
       width: 22px; height: 22px;
       border-radius: 50%;
-      background: #0a2240;
+      background: #0d47a1;
       border: 3px solid #ffffff;
       box-shadow: 0 2px 6px rgba(0,0,0,0.35);
       display: flex; align-items: center; justify-content: center;
     ">
-      <div style="width: 8px; height: 8px; border-radius: 50%; background: #b91c1c;"></div>
+      <div style="width: 8px; height: 8px; border-radius: 50%; background: #d32f2f;"></div>
     </div>
   `,
   iconSize: [22, 22],
@@ -124,9 +124,9 @@ export default function CountyMap({ visibleLayers, pin }: Props) {
           <GeoJSON
             data={outline}
             style={{
-              color: "#0a2240",
+              color: "#0d47a1",
               weight: 2,
-              fillColor: "#0a2240",
+              fillColor: "#0d47a1",
               fillOpacity: 0.05,
             }}
           />

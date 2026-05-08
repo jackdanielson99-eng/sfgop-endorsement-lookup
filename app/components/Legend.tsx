@@ -96,7 +96,7 @@ export default function Legend() {
           <span
             aria-hidden
             className="shrink-0 h-3 w-5 rounded-sm border border-black/10"
-            style={{ backgroundColor: "#0a2240" }}
+            style={{ backgroundColor: "#0d47a1" }}
           />
           <span className="text-navy">LA County Outline</span>
         </li>
@@ -104,7 +104,7 @@ export default function Legend() {
           <span
             aria-hidden
             className="shrink-0 h-3 w-3 rounded-full border-2 border-white shadow-sm"
-            style={{ backgroundColor: "#0a2240" }}
+            style={{ backgroundColor: "#0d47a1" }}
           />
           <span className="text-navy">Searched location pin</span>
         </li>
